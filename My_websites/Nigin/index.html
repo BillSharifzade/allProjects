@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nigin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Ломбард Нигин</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#calculator">Калькулятор</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="animate-text">Быстрые кредиты под залог золота и телефонов</h2>
+                <p class="animate-text">Возможность аннуитетных платежей</p>
+                <a href="#calculator" class="btn animate-btn">Рассчитать стоимость</a>
+            </div>
+            <div class="hero-image">
+                <img src="assets/pngegg.png" alt="Золотые изделия" class="gold-img animate-image">
+                <img src="assets/iPhone-16-Pro-All-Colors-PNG.png" alt="Смартфоны" class="phone-img animate-image">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Займ под залог золота</h3>
+                    <p>Принимаем золото любой пробы. Выгодные условия и быстрая оценка.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Займ под залог телефона</h3>
+                    <p>Принимаем современные смартфоны. Быстрая оценка и выдача денег.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Низкие проценты</h3>
+                    <p>Предлагаем выгодные условия кредитования с минимальными процентными ставками.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Безопасность</h3>
+                    <p>Гарантируем сохранность вашего имущества на весь срок займа.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="calculator">
+        <div class="container">
+            <h2 class="section-title">Калькулятор займа</h2>
+            <div class="calculator-tabs">
+                <button class="tab-btn active" data-tab="gold">Золото</button>
+                <button class="tab-btn" data-tab="annuity">Аннуитетные кредиты</button>
+            </div>
+            <div class="calculator-content">
+                <div class="tab-content active" id="gold-calculator">
+                    <div class="calculator-container">
+                        <div class="calculator-form">
+                            <div class="form-group">
+                                <label for="gold-type">Проба золота:</label>
+                                <select id="gold-type">
+                                    <option value="375">375 проба</option>
+                                    <option value="585" selected>585 проба</option>
+                                    <option value="750">750 проба</option>
+                                    <option value="875">875 проба</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="gold-weight">Вес золота (г):</label>
+                                <input type="number" id="gold-weight" min="0.1" step="0.1" value="1">
+                            </div>
+                            <button id="calculate-btn" class="btn">Рассчитать</button>
+                        </div>
+                        <div class="calculator-result">
+                            <div class="result-container">
+                                <h3>Сумма займа:</h3>
+                                <div class="result-amount" id="loan-amount">0 Сомони</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="annuity-calculator">
+                    <div class="calculator-container">
+                        <div class="calculator-form">
+                            <div class="form-group">
+                                <label for="annuity-amount">Сумма кредита (Сомони):</label>
+                                <input type="number" id="annuity-amount" min="1000" step="1000" value="10000">
+                            </div>
+                            <div class="form-group">
+                                <label for="annuity-term">Срок кредита (месяцев):</label>
+                                <select id="annuity-term">
+                                    <option value="3">3 месяца</option>
+                                    <option value="6">6 месяцев</option>
+                                    <option value="12" selected>12 месяцев</option>
+                                    <option value="18">18 месяцев</option>
+                                    <option value="24">24 месяца</option>
+                                </select>
+                            </div>
+                            <button id="calculate-annuity-btn" class="btn">Рассчитать</button>
+                        </div>
+                        <div class="calculator-result">
+                            <div class="result-container">
+                                <h3>Ежемесячный платеж:</h3>
+                                <div class="result-amount" id="monthly-payment">0 Сомони</div>
+                                <div class="effective-rate">
+                                    <h4>Эффективная ставка:</h4>
+                                    <span id="annuity-effective-rate">0%</span>
+                                </div>
+                            </div>
+                            <div class="payment-schedule">
+                                <h4>График платежей:</h4>
+                                <div class="table-container">
+                                    <table id="payment-schedule-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Месяц</th>
+                                                <th>Платеж</th>
+                                                <th>Основной долг</th>
+                                                <th>Проценты</th>
+                                                <th>Остаток</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Will be filled by JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Связаться с нами</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>г. Душанбе, ул. Айни, д. 71/48</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+992 5555-09-571</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>nigin.lombard2016@gmail.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Пн-Пт: 8:30 - 17:30<br>Сб: 08:30 - 14:00 Вс- Не рабочий день</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="email-form">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Ваш email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Ваш телефон" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Ваше сообщение" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Нигин</h2>
+                    <p>Ломбард</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#calculator">Калькулятор</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Мы в соцсетях</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ломбард Нигин. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

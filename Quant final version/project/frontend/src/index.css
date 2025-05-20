@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+html, body {
+  overscroll-behavior-y: contain;
+  overflow: hidden;
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+.hide-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animation for expanding content */
+@keyframes expandContent {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 60vh; /* Adjust as needed */
+  }
+}
+
+/* Keep basic container styles */
+.wiki-content-container {
+  animation: expandContent 0.4s ease-out;
+  /* background-color/padding/border-radius are handled by prose/utility classes now */
+}
+
+/* Remove old Wikipedia content styles (handled by prose) */
+/*
+.wiki-content-container img { ... }
+.wiki-content-container a { ... }
+.wiki-content-container a:hover { ... }
+.wiki-content-container h1, h2, h3 { ... }
+.wiki-content-container table { ... }
+.wiki-content-container th, td { ... }
+.wiki-content-container th { ... }
+.wiki-content-container .mw-editsection, .reference, .noprint { ... }
+*/
+
+/* Atom loading animation */
+@keyframes effect-1 {
+  0% { transform: perspective(1000px) rotate3d(1, 1, 1, 0deg); }
+  100% { transform: perspective(1000px) rotate3d(1, 1, 1, 360deg); }
+}
+@keyframes effect-2 {
+  0% { transform: perspective(1000px) rotate3d(1, -1, 1, 0deg); }
+  100% { transform: perspective(1000px) rotate3d(1, -1, 1, 360deg); }
+}
+@keyframes effect-3 {
+  0%, 100% { opacity: 0; }
+  25%, 75% { opacity: 1; }
+}
+.atom-loader .dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  margin: -8px 0 0 -8px; /* Center the dot */
+  border-radius: 50%;
+  background-color: rgba(138, 43, 226, 0.8); /* Example color */
+  z-index: 0;
+  opacity: 1;
+  animation-name: effect-3;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+.atom-loader .wrapper {
+  position: relative;
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+}
+
+.atom-loader .wrapper::before,
+.atom-loader .wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%; /* Relative to wrapper size */
+  height: 80%; /* Relative to wrapper size */
+  margin: -40% 0 0 -40%; /* Center based on % size */
+  border-radius: 50%;
+  opacity: 1;
+  border: 2px solid rgba(138, 43, 226, 0.8); /* Example color */
+  animation-duration: 5s, 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease, linear;
+}
+
+.atom-loader .wrapper::before {
+  z-index: 1;
+  animation-name: effect-3, effect-1;
+}
+
+.atom-loader .wrapper::after {
+  z-index: 2;
+  animation-name: effect-3, effect-2;
+}
