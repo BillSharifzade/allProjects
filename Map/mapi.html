@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YBM</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+</head>
+<body>
+    <div id="map" style="height: 500px;"></div>
+    <script>
+        const map = L.map('map').setView([38.5598, 68.7870], 13);
+
+        // Add the base tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add Routing Control
+        L.Routing.control({
+            waypoints: [
+                L.latLng(38.5598, 68.7870), // Starting point
+                L.latLng(38.5666, 68.7960)  // Ending point (example)
+            ],
+            routeWhileDragging: true,  // Enables live route updates while dragging waypoints
+            createMarker: function(i, waypoint, n) {
+                // Customize markers at waypoints
+                return L.marker(waypoint.latLng, {
+                    draggable: true
+                }).bindPopup(i === 0 ? 'Start' : 'End');
+            }
+        }).addTo(map);
+        const trafficLightIcon = L.icon({
+            iconUrl: '', // Replace with your icon URL
+            iconSize: [32, 32], // Adjust size
+            iconAnchor: [16, 32] // Anchor point of the icon
+        });
+
+        // Add traffic light markers
+        const trafficLights = [
+            { lat: 51.505, lng: -0.09 }, // Example coordinates
+            { lat: 51.51, lng: -0.1 }
+        ];
+
+        trafficLights.forEach(light => {
+            L.marker([light.lat, light.lng], { icon: trafficLightIcon }).addTo(map)
+             .bindPopup("Traffic Light");
+        });
+    </script>
+</body>
+</html>

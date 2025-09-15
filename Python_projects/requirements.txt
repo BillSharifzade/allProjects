@@ -1,0 +1,4 @@
+Flask == 2.2.2
+python-dotenv == 0.21.0
+mysql-connector-python == 8.0.30
+python-telegram-bot == 20.0
