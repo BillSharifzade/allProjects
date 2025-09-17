@@ -1,0 +1,17 @@
+<html>
+    <div
+        id="my_box_realtime"
+        style="background-color: red; position: absolute; right: 70; bottom: 70; min-width: 100px; min-height: 100px"
+    ></div>
+    <script type="text/javascript">
+        box=document.getElementById("my_box_realtime");
+        right=70;
+        bottom=70;
+        const timer = setInterval(() => {
+            box.style.right=right+"px";
+            box.style.bottom=bottom+"px";
+            right--;
+            bottom--;
+        }, 500);
+    </script>
+</html>
