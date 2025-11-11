@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE webhook_logs SET response_body = $1, status = 'failed', attempts = COALESCE(attempts,0) + 1, updated_at = NOW() WHERE id = $2",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "ed94ea4cd6f0b20edef510debec6f0a122d751d581506bf58ada4a9e908014a5"
+}

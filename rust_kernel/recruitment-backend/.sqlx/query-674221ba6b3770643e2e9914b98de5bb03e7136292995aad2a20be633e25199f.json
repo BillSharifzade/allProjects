@@ -1,0 +1,122 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            INSERT INTO tests (title, external_id, description, instructions, questions, duration_minutes, passing_score, shuffle_questions, shuffle_options, show_results_immediately, created_by)\n            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)\n            RETURNING \n                id,\n                title,\n                external_id,\n                description,\n                instructions,\n                questions as \"questions: JsonValue\",\n                duration_minutes,\n                passing_score as \"passing_score: rust_decimal::Decimal\",\n                max_attempts,\n                shuffle_questions,\n                shuffle_options,\n                show_results_immediately,\n                created_by,\n                is_active,\n                created_at,\n                updated_at\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "title",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 2,
+        "name": "external_id",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 3,
+        "name": "description",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "instructions",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "questions: JsonValue",
+        "type_info": "Jsonb"
+      },
+      {
+        "ordinal": 6,
+        "name": "duration_minutes",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 7,
+        "name": "passing_score: rust_decimal::Decimal",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 8,
+        "name": "max_attempts",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 9,
+        "name": "shuffle_questions",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 10,
+        "name": "shuffle_options",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 11,
+        "name": "show_results_immediately",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 12,
+        "name": "created_by",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 13,
+        "name": "is_active",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 14,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 15,
+        "name": "updated_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Varchar",
+        "Varchar",
+        "Text",
+        "Text",
+        "Jsonb",
+        "Int4",
+        "Numeric",
+        "Bool",
+        "Bool",
+        "Bool",
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "674221ba6b3770643e2e9914b98de5bb03e7136292995aad2a20be633e25199f"
+}

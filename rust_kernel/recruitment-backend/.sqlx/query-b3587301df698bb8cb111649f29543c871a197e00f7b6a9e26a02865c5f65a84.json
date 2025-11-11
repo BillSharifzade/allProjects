@@ -1,0 +1,90 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            INSERT INTO webhook_logs (event_type, payload, target_url, status)\n            VALUES ($1, $2, $3, 'pending')\n            RETURNING \n                id, event_type, payload as \"payload: serde_json::Value\", target_url,\n                http_status, response_body, attempts, max_attempts, next_retry_at, status,\n                created_at as \"created_at?: _\", updated_at as \"updated_at?: _\"\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "event_type",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 2,
+        "name": "payload: serde_json::Value",
+        "type_info": "Jsonb"
+      },
+      {
+        "ordinal": 3,
+        "name": "target_url",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "http_status",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 5,
+        "name": "response_body",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "attempts",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 7,
+        "name": "max_attempts",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 8,
+        "name": "next_retry_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 9,
+        "name": "status",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 10,
+        "name": "created_at?: _",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 11,
+        "name": "updated_at?: _",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Varchar",
+        "Jsonb",
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "b3587301df698bb8cb111649f29543c871a197e00f7b6a9e26a02865c5f65a84"
+}
