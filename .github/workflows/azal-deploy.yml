@@ -46,10 +46,16 @@ jobs:
       - name: Build with Next.js
         run: npm run build
 
+      - name: Restructure for nested path
+        run: |
+          mkdir -p staging/My_websites/azal-telecom
+          cp -r out/* staging/My_websites/azal-telecom/
+        working-directory: My_websites/azal-telecom
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: My_websites/azal-telecom/out
+          path: My_websites/azal-telecom/staging
 
   deploy:
     environment:

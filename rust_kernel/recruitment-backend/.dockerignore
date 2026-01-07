@@ -1,8 +1,0 @@
-/target
-/tmp
-/tests
-/.git
-/.idea
-/.vscode
-.env
-.env.*

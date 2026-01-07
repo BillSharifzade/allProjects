@@ -1,1 +1,0 @@
-/home/qwantum/RustroverProjects/allProjects/rusty_project/clientServerChat/chat/client/target/debug/client: /home/qwantum/RustroverProjects/allProjects/rusty_project/clientServerChat/chat/client/src/main.rs
