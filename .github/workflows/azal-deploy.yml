@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working_directory: My_websites/azal-telecom
+        working-directory: My_websites/azal-telecom
     steps:
       - name: Checkout
         uses: actions/checkout@v4
