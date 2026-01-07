@@ -24,6 +24,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          sparse-checkout: |
+            My_websites/azal-telecom
+            .github/workflows
+          sparse-checkout-cone-mode: false
           submodules: false
       
       - name: Setup Node
