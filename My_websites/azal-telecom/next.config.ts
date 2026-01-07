@@ -6,8 +6,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // Base path for GitHub Pages deployment: /repo-name/path-to-folder
-  basePath: '/allProjects/My_websites/azal-telecom',
+  // Base path for GitHub Pages deployment: /repo-name
+  basePath: '/allProjects',
 };
 
 export default nextConfig;
